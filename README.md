@@ -1,29 +1,195 @@
-# Kişisel Finans ve Borsa Analiz Sistemi
+💼 YatırımcıDostum - Akıllı Portföy Yöneticisi
+Bu proje, kişisel finans yönetimi, döviz kuru takibi, kripto para analizi ve portföy yönetimi için geliştirilmiş kapsamlı bir masaüstü uygulamasıdır.
 
-Bu proje, kişisel finans yönetimi, güncel döviz kurları, altın fiyatları ve temel borsa analizlerini bir araya getiren bir Python uygulamasıdır. Kullanıcı dostu bir arayüz (PyQt5) ve komut satırı seçenekleri sunar.
+🚀 Özellikler
+💰 Döviz ve Altın Takibi
+Dolar/TL Kuru: Anlık döviz kuru bilgisi
 
-## Özellikler
+Euro/TL Kuru: Anlık döviz kuru bilgisi
 
-* **Güncel Kur Bilgileri:** Anlık Dolar, Euro ve Gram Altın fiyatlarını görüntüler.
-* **Portföy Yönetimi:** Sahip olduğunuz Dolar, Euro, Altın ve TL miktarını bir MySQL veritabanına kaydedebilir, daha sonra görüntüleyebilirsiniz.
-* **Hisse Senedi Tahmini:** Belirtilen bir hisse senedinin sembolüne göre basit bir doğrusal regresyon modeli kullanarak gelecekteki değerini tahmin eder.
-* **Borsa Analizi:** Önceden tanımlanmış bir veri setini kullanarak Doğal Gaz, Bitcoin ve Ethereum gibi varlıkların tarihsel performansını analiz eder ve grafikler oluşturur. Bu grafikleri PNG veya PDF formatında kaydedebilirsiniz.
-* **Ekonomi Haberleri:** Selenium Webdriver kullanarak popüler bir finans sitesinden güncel ekonomi haberlerini çeker.
+Gram Altın: Güncel gram altın fiyatı (Investing.com'dan)
 
+📊 Portföy Yönetimi
+PyQt5 Arayüz: Kullanıcı dostu grafiksel arayüz
 
+Veritabanı Kaydı: MySQL ile portföy verilerini saklama
 
+Portföy Görüntüleme: Kayıtlı verileri listeleme
 
+📈 Borsa ve Kripto Analizi
+Hisse Tahmini: 30 günlük veriyle linear regression tahmini
 
-### English README.md
+Bitcoin Analizi: Ortalama fiyat, en yüksek/düşük değerler, grafik
 
-# Personal Finance and Stock Market Analysis System
+Ethereum Analizi: Detaylı fiyat analizi ve grafik
 
-This is a Python application that combines personal finance management, live currency rates, gold prices, and fundamental stock market analysis. It offers both a user-friendly graphical interface (PyQt5) and command-line options.
+Doğal Gaz Analizi: Fiyat trendleri ve grafik
 
-## Features
+📑 Raporlama
+PDF Raporları: Tüm grafikler PDF olarak kaydedilebilir
 
-* **Live Currency Rates:** Displays real-time prices for USD/TRY, EUR/TRY, and Gram Gold.
-* **Portfolio Management:** Save your holdings in USD, EUR, Gold, and TRY to a MySQL database and view them later.
-* **Stock Prediction:** Predicts the future value of a given stock ticker using a basic linear regression model.
-* **Market Analysis:** Analyzes the historical performance of assets like Natural Gas, Bitcoin, and Ethereum from a predefined dataset. It can generate and save plots in PNG or PDF format.
-* **Economic News:** Fetches the latest economic news from a popular financial website using Selenium Webdriver.
+Zaman Damgası: Raporlara otomatik tarih ekleme
+
+🛠️ Yardımcı Araçlar
+Ekonomi Haberleri: Investing.com'a otomatik yönlendirme
+
+Hata Loglama: Tüm hatalar dosyaya kaydedilir
+
+📁 Gereksinimler
+bash
+pip install PyQt5 mysql-connector-python requests numpy pandas matplotlib reportlab selenium yfinance scikit-learn
+🔧 Kurulum
+Projeyi klonlayın
+
+MySQL veritabanı oluşturun:
+
+sql
+CREATE DATABASE portfoy;
+USE portfoy;
+CREATE TABLE param (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    İsim VARCHAR(100),
+    Dolar DECIMAL(10,2),
+    Euro DECIMAL(10,2),
+    Altın DECIMAL(10,2),
+    TL DECIMAL(10,2),
+    Zaman DATETIME
+);
+Kodda aşağıdaki alanları kendi bilgilerinizle güncelleyin:
+
+MySQL bağlantı bilgileri
+
+ExchangeRate-API key
+
+Microsoft Edge WebDriver'ı yükleyin
+
+Programı çalıştırın:
+
+bash
+python smart-portfolio-manager.py
+📂 Dosya Yapısı
+smart-portfolio-manager.py - Ana program dosyası
+
+hata_dosyam.txt - Hata loglama dosyası
+
+kişisel finans hakkı.png - Uygulama ikonu
+
+*.png - Oluşturulan grafik dosyaları
+
+*.pdf - Oluşturulan PDF raporları
+
+📊 Kullanılan Veri Seti
+Borsa analizi için Stock Market Dataset.csv dosyası kullanılmaktadır. Bu dosyada:
+
+Tarih (Date)
+
+Doğal gaz fiyatları (Natural_Gas_Price)
+
+Bitcoin fiyatları (Bitcoin_Price)
+
+Ethereum fiyatları (Ethereum_Price)
+
+🎯 Kullanım
+Program çalıştırıldığında ana menü karşınıza gelir:
+
+text
+************** YATIRIMCIDOSTUM Uygulamasına Hoşgeldiniz🥰 **************
+Yapabilecekleriniz:
+1=Dolar/TL Değeri💵
+2=Euro/TL Değeri💶
+3=Gram Altın Değeri🪙
+4=Portföyünüzü Veritabanına Kaydetme📓
+5=Portföy Görüntüleme🔎
+6=Hisse Tahmin Etme (Temel Seviye)
+7=Borsa Analiz📈
+8=Ekonomi Haberleri📰
+9=Sistemden Çıkış
+📝 Portföy Kayıt Arayüzü
+seçenekte açılan PyQt5 penceresinde:
+
+İsim
+
+Dolar miktarı
+
+Euro miktarı
+
+Çeyrek altın miktarı
+
+TL miktarı
+girilerek veritabanına kayıt yapılır.
+
+📈 Analiz Özellikleri
+Hisse Tahmini
+Yahoo Finance'den 30 günlük veri çeker
+
+Linear Regression ile gelecek gün tahmini yapar
+
+RMSE hata oranı hesaplar
+
+Bitcoin Analizi
+Ortalama fiyat
+
+En yüksek fiyat ve tarihi
+
+En düşük fiyat ve tarihi
+
+Son 30 gün grafiği
+
+Ethereum Analizi
+Ortalama fiyat
+
+En yüksek/düşük değerler
+
+Tüm zamanlar grafiği
+
+Detaylı teknik açıklama
+
+📄 PDF Raporları
+Her grafik için:
+
+PNG olarak kaydetme
+
+PDF'ye dönüştürme
+
+Açıklama metinleri
+
+Otomatik tarih damgası
+
+⚠️ Hata Yönetimi
+Tüm hatalar hata_dosyam.txt dosyasına kaydedilir:
+
+Hata açıklaması
+
+Hata tarihi
+
+Kullanıcıya uygun mesaj gösterimi
+
+🔗 API ve Araçlar
+ExchangeRate-API: Döviz kurları için
+
+Yahoo Finance: Hisse verileri için
+
+Investing.com: Altın fiyatı ve haberler için
+
+Selenium: Web scraping için
+
+MySQL: Veritabanı için
+
+PyQt5: Grafiksel arayüz için
+
+ReportLab: PDF oluşturma için
+
+⚙️ Teknik Detaylar
+Tahmin Modeli: Scikit-learn Linear Regression
+
+Web Scraping: Selenium WebDriver
+
+Veri İşleme: Pandas, Numpy
+
+Grafikler: Matplotlib
+
+Arayüz: PyQt5
+
+PDF: ReportLab
+
+Veritabanı: MySQL Connector
